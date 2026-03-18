@@ -8,7 +8,7 @@ const TradeHistory = ({ userEmail }) => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/trade_history?email=${userEmail}`);
+        const response = await fetch(`https://high-performance-hft-order-matching-fgy4.onrender.com/trade_history?email=${userEmail}`);
         const data = await response.json();
         
         if (data.status === 'success') {

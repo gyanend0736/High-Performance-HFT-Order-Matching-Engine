@@ -7,7 +7,7 @@ import Auth from './components/Auth';
 import TradeHistory from './components/TradeHistory';
 import './App.css';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://high-performance-hft-order-matching-fgy4.onrender.com');
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     const fetchInitialBook = async () => {
       try {
-        const response = await fetch('http://localhost:5000/get_book');
+        const response = await fetch('https://high-performance-hft-order-matching-fgy4.onrender.com/get_book');
         if (response.ok) {
           const initialData = await response.json();
           setData(initialData); 
