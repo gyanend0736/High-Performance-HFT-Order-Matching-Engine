@@ -1,0 +1,49 @@
+/* Ensure the body doesn't have default margins throwing off the centering */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0e11; /* Match your dark background */
+  color: #eaecef;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+/* Optional: Make the cards look cohesive with the OrderEntry */
+.card {
+  width: 380px; 
+  background: #1e2329;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+.main-content {
+  padding: 40px 20px;
+  max-width: 1000px; /* Keeps everything grouped nicely in the middle */
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.trading-layout {
+  display: flex;
+  flex-direction: row; /* Side-by-side */
+  justify-content: center;
+  align-items: flex-start; /* Aligns them to the top */
+  gap: 40px; /* Space between the two blocks */
+  flex-wrap: wrap; /* If the screen gets too small, it safely stacks them */
+}
+
+/* 4. Force both panels to be the exact same width */
+.trade-container, .card {
+  flex: 1;
+  min-width: 320px;
+  max-width: 450px;
+  width: 100%;
+  box-sizing: border-box;
+}

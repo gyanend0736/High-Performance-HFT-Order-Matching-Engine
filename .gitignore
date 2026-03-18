@@ -1,0 +1,21 @@
+# Virtual Environments
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ Compiled Files
+*.o
+*.so
+*.pyd
+*.dll
+
+# Secrets (NEVER UPLOAD YOUR MONGODB PASSWORD!)
+.env
+
+# OS Files
+.DS_Store
+Thumbs.db

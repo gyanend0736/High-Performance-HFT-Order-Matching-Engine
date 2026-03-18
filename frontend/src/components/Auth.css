@@ -1,0 +1,80 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color, #0b0e11);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card-bg, #1e2329);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h2 {
+  color: #eaecef;
+  margin: 0 0 10px 0;
+  font-size: 24px;
+}
+
+.auth-header p {
+  color: #848e9c;
+  margin: 0;
+  font-size: 14px;
+}
+
+.auth-form .input-group {
+  margin-bottom: 20px;
+}
+
+.auth-submit {
+  background-color: #fcd535; /* Classic crypto yellow/gold for the main action */
+  color: #000;
+  margin-top: 10px;
+}
+
+.auth-submit:hover {
+  background-color: #e0bd2e;
+}
+
+.auth-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+  color: #848e9c;
+}
+
+.toggle-link {
+  color: #fcd535;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.toggle-link:hover {
+  color: #e0bd2e;
+  text-decoration: underline;
+}
+.auth-error {
+  background-color: rgba(246, 70, 93, 0.1);
+  color: #f6465d;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(246, 70, 93, 0.3);
+}

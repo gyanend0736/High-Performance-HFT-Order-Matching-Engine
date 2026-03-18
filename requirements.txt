@@ -1,0 +1,9 @@
+Flask==3.0.2
+Flask-SocketIO==5.3.6
+Flask-Cors==4.0.0
+pymongo==4.6.2
+python-dotenv==1.0.1
+Werkzeug==3.0.1
+pybind11==2.11.1
+gunicorn==21.2.0
+eventlet==0.35.2

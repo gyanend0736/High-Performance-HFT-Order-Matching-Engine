@@ -1,0 +1,13 @@
+# Node Modules (This folder is massive, Vercel will install it themselves)
+node_modules/
+
+# Production Build outputs
+dist/
+build/
+
+# Local Environment variables
+.env
+.env.local
+
+# OS Files
+.DS_Store

@@ -1,0 +1,187 @@
+:root {
+  --bg-color: #0b0e11;
+  --card-bg: #1e2329;
+  --text-main: #eaecef;
+  --text-muted: #848e9c;
+  --buy-color: #0ecb81;
+  --sell-color: #f6465d;
+  --input-bg: #2b3139;
+}
+
+.trade-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--bg-color);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.trade-card {
+  width: 380px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  /* IMPORTANT: Remove 'overflow: hidden' so the pop-up can break out of the card */
+  position: relative; /* Anchors the absolute pop-up to this div */
+  z-index: 10;
+}
+
+/* Big Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  padding: 24px;
+}
+
+.big-btn {
+  flex: 1;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+.buy-btn {
+  border: 2px solid var(--buy-color);
+  color: var(--buy-color);
+}
+.buy-btn:hover, .buy-btn.active {
+  background: var(--buy-color);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(14, 203, 129, 0.3);
+}
+
+.sell-btn {
+  border: 2px solid var(--sell-color);
+  color: var(--sell-color);
+}
+.sell-btn:hover, .sell-btn.active {
+  background: var(--sell-color);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(246, 70, 93, 0.3);
+}
+
+/* Smooth Slide-Down Animation */
+.form-expand-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-expand-container.open {
+  grid-template-rows: 1fr;
+}
+
+.form-content {
+  overflow: hidden;
+  padding: 0 24px; /* Horizontal padding only, vertical managed inside to prevent animation jumps */
+}
+
+/* Form Elements */
+.balance-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+.balance-info strong { color: var(--text-main); }
+
+.input-group { margin-bottom: 18px; }
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--input-bg);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border 0.3s;
+}
+
+/* Dynamic Focus Colors based on active mode */
+.input-wrapper.buy:focus-within { border: 1px solid var(--buy-color); }
+.input-wrapper.sell:focus-within { border: 1px solid var(--sell-color); }
+
+.input-wrapper input {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 14px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.currency-tag {
+  padding-right: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+.total-preview {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 24px; /* Acts as bottom padding for the form */
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.submit-btn:active { transform: scale(0.98); }
+.submit-btn:hover { opacity: 0.9; }
+.submit-btn.buy { background-color: var(--buy-color); color: #000; }
+.submit-btn.sell { background-color: var(--sell-color); color: #fff; }
+
+/* New Floating Pop-up Logic */
+.form-popup-container {
+  position: absolute;
+  top: 100%;       /* Pushes the form exactly below the buttons */
+  left: 0;
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  border: 1px solid #333;
+  z-index: 100;    /* Forces it to float over the OrderBook component */
+  box-sizing: border-box;
+  
+  /* Smooth fade & slide-up animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-popup-container.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px); /* Detaches slightly from the buttons for a clean look */
+}
+
+/* Give the form content some padding */

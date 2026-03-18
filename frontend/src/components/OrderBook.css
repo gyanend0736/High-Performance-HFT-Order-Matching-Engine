@@ -1,0 +1,88 @@
+/* Container splits the columns */
+.orderbook-container {
+  display: flex;
+  justify-content: space-between; /* Pushes the columns apart */
+  width: 100%;
+  gap: 20px; /* Space between the two columns */
+}
+
+/* Individual columns take equal width */
+.orderbook-column {
+  flex: 1; /* Each column takes up 50% of the space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titles */
+.orderbook-column h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.bids-title {
+  color: #0ecb81; /* Trading Green */
+  text-align: left;
+}
+
+.asks-title {
+  color: #f6465d; /* Trading Red */
+  text-align: right;
+}
+
+/* Rows for data */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Space between rows */
+}
+
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Courier New', Courier, monospace; /* Monospace is best for aligning numbers */
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Bids align left, Asks align right */
+.bid-row {
+  color: #0ecb81;
+  background: rgba(14, 203, 129, 0.05); /* Very subtle green background */
+}
+
+.ask-row {
+  color: #f6465d;
+  background: rgba(246, 70, 93, 0.05); /* Very subtle red background */
+}
+
+.empty-state {
+  color: #848e9c;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+}
+/* Add this below your existing titles CSS */
+.column-headers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #848e9c;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Ensure the text inside the rows behaves */
+.qty-text {
+  color: #eaecef; /* White/grey for quantity so it doesn't distract from price */
+}
+
+.price-text {
+  font-weight: bold; /* Make the price stand out more */
+}
