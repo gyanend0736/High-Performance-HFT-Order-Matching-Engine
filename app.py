@@ -132,10 +132,10 @@ def place_order():
         # 8. SETTLEMENT PHASE
         if matched_trades: # This stops the crash if C++ returns nothing!
             for trade in matched_trades:
-                bid_id = int(trade[0])
-                ask_id = int(trade[1])
-                match_price = float(trade[2])
-                match_qty = float(trade[3])
+                bid_id = int(trade.buyer_id)
+                ask_id = int(trade.seller_id)
+                match_price = float(trade.execution_price)
+                match_qty = float(trade.qty_transacted)
                 
                 print(f"🛠️ Processing Match - BidID: {bid_id}, AskID: {ask_id}")
 
