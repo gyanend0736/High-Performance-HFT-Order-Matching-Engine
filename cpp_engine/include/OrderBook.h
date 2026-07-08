@@ -7,7 +7,8 @@
 #include <string>
 #include <iostream> 
 #include "Order.h"
-using namespace std;
+#include<mutex>
+
 
 // Returns a summary of the book for the frontend
 struct BookSummary {
@@ -22,20 +23,21 @@ private:
 
     // Asks: Sorted Low to High
     std::map<Price, std::list<Order>, std::less<Price>> asks;
+    std::mutex book_mutex;
 
     // Changed to return the trade details
-    vector<vector<double>> match();
+    std::vector<Trade> match();
 
 public:
     // Changed to return the matched trades back to Python
-    vector<vector<double>> addOrder(Order order);
+    std::vector<Trade> addOrder(Order order);
 
     // Returns a summary of the current market state (for the UI/Main)
+    std::vector<std::map<std::string, double>> getBids() const;
+    std::vector<std::map<std::string, double>>  getAsks() const;
     void printOrderBook() const;
-    vector<map<string, double>> getBids() const;
-    vector<map<string, double>> getAsks() const;
-
-    BookSummary get_summary() const;
 };
+
+
 
 #endif

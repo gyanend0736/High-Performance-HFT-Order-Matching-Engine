@@ -1,9 +1,10 @@
-#include "OrderBook.h"
+#include "../include/OrderBook.h"
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
-vector<vector<double>> OrderBook::addOrder(Order order) {
+vector<Trade> OrderBook::addOrder(Order order) {
+    std::lock_guard<std::mutex> lock(book_mutex);
     if(order.side == Side::BUY){
         bids[order.price].push_back(order);
     }
@@ -15,12 +16,13 @@ vector<vector<double>> OrderBook::addOrder(Order order) {
 }
 
 // Now returns [bid_id, ask_id, match_price, match_quantity]
-vector<vector<double>> OrderBook::match() {
-    vector<vector<double>> res;
+vector<Trade> OrderBook::match() {
+    vector<Trade> res;
     
     while(!bids.empty() && !asks.empty()){
         auto maxbid = bids.begin();
         auto minask = asks.begin();
+        
         
         if(maxbid->first >= minask->first){
             Order& bidOrder = maxbid->second.front();
@@ -31,12 +33,12 @@ vector<vector<double>> OrderBook::match() {
                       << " (Bid ID: " << bidOrder.id << ", Ask ID: " << askOrder.id << ")\n";
 
             // Push the 4 crucial pieces of settlement data for Python
-            res.push_back({
-                (double)bidOrder.id, 
-                (double)askOrder.id, 
-                (double)minask->first, 
-                (double)quanMIN
-            });
+            Trade trade;
+            trade.buyerId= bidOrder.id;
+            trade.sellerId= askOrder.id;
+            trade.executionPrice= minask->first;
+            trade.qtyTransacted= quanMIN;
+            res.push_back(trade);
 
             bidOrder.quantity -= quanMIN;
             askOrder.quantity -= quanMIN;

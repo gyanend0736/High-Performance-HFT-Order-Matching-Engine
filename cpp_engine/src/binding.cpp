@@ -7,7 +7,7 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>  // Essential for converting vector/map/list
-#include "OrderBook.h"
+#include "../include/OrderBook.h"
 #include <cstring>
 
 namespace py = pybind11;
@@ -26,6 +26,12 @@ PYBIND11_MODULE(trading_engine, m) {
         .def_readwrite("price", &Order::price)
         .def_readwrite("quantity", &Order::quantity)
         .def_readwrite("side", &Order::side);
+    
+    py::class_<Trade>(m, "Trade")
+    .def_readonly("buyer_id",        &Trade::buyerId)
+    .def_readonly("seller_id",       &Trade::sellerId)
+    .def_readonly("execution_price", &Trade::executionPrice)
+    .def_readonly("qty_transacted",  &Trade::qtyTransacted);
 
     // Expose the OrderBook class
     py::class_<OrderBook>(m, "OrderBook")
