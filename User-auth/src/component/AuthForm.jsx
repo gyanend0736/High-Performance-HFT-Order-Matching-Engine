@@ -3,22 +3,29 @@ import React from 'react'
 import { Turnstile } from '@marsidev/react-turnstile'
 import { useState } from 'react'
 import Captcha from './Captcha';
+
 const AuthForm = () => {
     const [Name, setName] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
-    const [Login, setLogin] = useState(true)
+    
+    const [Login, setLogin] = useState(false)
     function handleFormSumbit(e){
         e.preventDefault()
         console.log(Name)
         console.log(Email)
         console.log(Password)
+        setName('')
+        setEmail('')
+        setPassword('')
     }
   return (
    
     <div className=''>
-        <h1>Create Account</h1>
+        <h1 className='text-2xl'>{!Login?("Create Account"):("Welcome Back!")}</h1>
         <form action="">
+
+            {/*--------------------------- input 1 full name------------------------------- */}
             {!Login &&
             <div className={`border-2 border-gray-500 rounded-sm p-2 my-2 ${(Login)?'none':''}`}>
                 <input
@@ -33,6 +40,8 @@ const AuthForm = () => {
                 />
             </div>
             }
+
+            {/*--------------------- input 2 email id--------------------------- */}
             <div  className='border-2 border-gray-500 rounded-sm p-2 my-2'>
                 <input
                     className='border-none outline-none focus:outline-none focus:ring-0 w-full'
@@ -45,6 +54,8 @@ const AuthForm = () => {
                     }}
                 />
             </div>
+
+        {/*--------------- input 3 Password-------------------------------- */}
             <div  className='border-2 border-gray-500 rounded-sm p-2 my-2'>
                 <input
                     className='border-none outline-none focus:outline-none focus:ring-0 w-full'
@@ -57,22 +68,26 @@ const AuthForm = () => {
                     }}
                 />
             </div>
+
+            {/*-------------- Catcha --------------------------*/}
            <Captcha/>
              
+             {/*-------------- form sumbit button -----------------*/}
             <button className='w-full' 
             type='Sumbit' 
             onClick={(e)=>{
                 handleFormSumbit(e)
                 }}>
-                <p className={`px-4 py-3 whitespace-nowrap font-semibold rounded-sm ${(Name==''|| Email==''||Password=='')?'bg-blue-900/50':'bg-blue-900/70'}`}>Create Account With Email</p>
+                <p className={`px-4 py-3 whitespace-nowrap font-semibold rounded-sm ${(Name==''|| Email==''||Password=='')?'bg-blue-900/50':'bg-blue-700/70'}`}>{!Login?("Create Account With Email"):("Login")}</p>
             </button>
         </form>
+
         <hr className="border-t border-gray-300 my-4" />
 
-        <p className='text-gray-500'>Already have an Account <button className='text-blue-500/90' onClick={()=>{
+        <p className='text-gray-500'>{!Login?("Already have an Account "):("Don't have a account ") }<button className='text-blue-500/90' onClick={()=>{
             setLogin(Login => !Login)
             console.log(Login)
-        }}>Login</button></p>
+        }}>{!Login?("Login"):("SignUp")}</button></p>
     </div>
   )
 }

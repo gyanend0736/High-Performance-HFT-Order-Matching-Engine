@@ -1,10 +1,10 @@
 import React from 'react'
+import Section1 from '../Components/HomePage/Section1'
 
 const Home = () => {
   return (
-    <div className='w-screen h-screen  text-white bg-black'>
-      <div className='  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl'>Home
-      </div>
+    <div className='w-screen h-screen  text-white '>
+     <Section1/>
     </div>
   )
 }
