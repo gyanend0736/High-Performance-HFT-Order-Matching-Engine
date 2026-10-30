@@ -1,10 +1,10 @@
-import React from 'react'
-import Section1 from '../Components/HomePage/Section1'
+
+import HeroSection from '../Components/Home/HeroSection'
 
 const Home = () => {
   return (
     <div className='w-screen h-screen  text-white '>
-     <Section1/>
+     <HeroSection/>
     </div>
   )
 }

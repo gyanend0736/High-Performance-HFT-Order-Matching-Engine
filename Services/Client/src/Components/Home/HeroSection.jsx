@@ -1,8 +1,7 @@
-import React from 'react'
-import Signbuttons from '../Navigation/Signbuttons'
 
 import { useEffect, useState} from 'react'
-const Section1 = () => {
+import AuthButtons from '../Navigation/AuthButtons'
+const HeroSection = () => {
     const words=["Trade", 'Learn', 'Invest']
   const [word, setword] = useState(0)
   useEffect(() => {
@@ -23,7 +22,7 @@ const Section1 = () => {
                 India Ka Crypto coach !
                 </p>
                 <p className='text-gray-500 text-sm'><span>Trusted by 2 Cr+ Users to</span> <span className='text-blue-500 transition-all duration-500'>{words[word]}</span> Crypto </p><br />
-                <Signbuttons type='Create Account'/>
+                <AuthButtons type='Create Account'/>
             </div>
 
         </div>
@@ -32,4 +31,4 @@ const Section1 = () => {
   )
 }
 
-export default Section1
+export default HeroSection

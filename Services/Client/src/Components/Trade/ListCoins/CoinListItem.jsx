@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useTrade } from '../TradeProvider'
+import { useTrade } from '../../../Contexts/TradeProvider'
 
-const Coin = ({idx, c}) => {
+const CoinListItem = ({idx, c}) => {
   const coin= JSON.parse(c)
   const {currCoin, setcurrCoin}= useTrade()
-  
+
+  const coinName=coin.symbol;
+  const coinPrice=Number(coin.quote[0].price.toFixed(2))
   return (
     <div className=''>
         <button 
@@ -12,7 +14,7 @@ const Coin = ({idx, c}) => {
           onClick={()=>{setcurrCoin(idx)}}
         >
             <div className='grid grid-cols-[2fr_1fr]'>
-                <div className='text-start px-2 whitespace-nowrap text-[60%]'><p>{coin.coinName}</p><p>{coin.price}</p></div>
+                <div className='text-start px-2 whitespace-nowrap text-[60%]'><p>{coinName}</p><p>{coinPrice}</p></div>
                 <div className='p-1'><div className='w-full h-full bg-blue-500'></div></div>
             </div>
             
@@ -22,4 +24,4 @@ const Coin = ({idx, c}) => {
   )
 }
 
-export default Coin
+export default CoinListItem

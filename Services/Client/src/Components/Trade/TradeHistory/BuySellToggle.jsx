@@ -10,7 +10,7 @@ const OrderButton = ({type}) => {
   )
 }
 
-const OrderButtons = ()=>{
+const BuySellToggle = ()=>{
   return (
      <div className='relative h-full'>
         <div className='w-full absolute top-0  '>
@@ -21,4 +21,4 @@ const OrderButtons = ()=>{
   )
 }
 
-export default OrderButtons
+export default BuySellToggle

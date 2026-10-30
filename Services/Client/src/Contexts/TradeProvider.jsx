@@ -1,72 +1,18 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState,useEffect } from 'react'
+
 export const TradeContext= createContext();
 
 
 const TradeProvider = ({ children }) => {
     const [currCoin, setcurrCoin] = useState(0)
-    const coins= [
-        {
-            coinName: 'Btc . USDT',
-            price: '760299.2 USDT',
-        },
-        {
-            coinName: 'Eth . USDT',
-            price: '7699.2 USDT',
-        },
-        {
-            coinName: 'Sol . USDT',
-            price: '60299.2 USDT',
-        },
-        {
-            coinName: 'Doge . USDT',
-            price: '799.2 USDT',
-        },
-        {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        },
-        {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        },
-         {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        }, {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        }, {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        },
-         {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        }, {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        },
-         {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        }, {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        }, {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        },
-        {
-            coinName: 'Shiba . USDT',
-            price: '760.2 USDT',
-        },
-       
-    ]
+    const [coinData, setCoinData] = useState([])
 
+    
     const value= {
         currCoin,
         setcurrCoin,
-        coins
+        coinData,
+        setCoinData,
     };
   return (
     <TradeContext.Provider value={value}>
@@ -82,5 +28,6 @@ export const useTrade =()=>{
     if(!context){
         throw new Error('useTrade must be used within a TradeProvider')
     }
+    
     return context
 }

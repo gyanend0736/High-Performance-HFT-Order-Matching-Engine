@@ -1,0 +1,23 @@
+client/
+├── public/
+│   └── favicon.svg, etc.
+├── src/
+│   ├── assets/              # images, svgs, static media
+│   ├── components/          # reusable, non-page-specific UI pieces
+│   │   ├── Navigation/       # your existing MainNav, NavContent, NavCaution, Navitem, Logo, Signbuttons
+│   │   ├── common/            # buttons, inputs, cards — generic shared pieces
+│   │   └── trading/            # OrderBookDepth, TradeFeed, SpreadTracker (from your README's planned components)
+│   ├── pages/                # route-level views — Home, About, and later Dashboard, Trade, etc.
+│   ├── layouts/               # shared page shells (e.g. a layout wrapping Nav + page content)
+│   ├── hooks/                  # custom hooks (e.g. useWebSocket for live order book data)
+│   ├── context/                 # auth/session context once login state needs to be shared app-wide
+│   ├── services/                  # API calls — fetch wrappers, WebSocket client setup
+│   ├── utils/                       # formatting helpers, constants
+│   ├── styles/                       # if you outgrow single index.css
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── vite.config.js
+├── package.json
+└── eslint.config.js

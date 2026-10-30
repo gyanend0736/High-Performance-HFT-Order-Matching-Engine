@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const TradeSummaryRow = ({ item, type }) => {
+const TradeSummaryRow = ({idx, item, type }) => {
   // Clamp percent between 0 and 100 to prevent overflow bugs
   const percent = Math.min(Math.max(item * 10, 0), 100);
 
@@ -26,16 +26,16 @@ const TradeSummaryRow = ({ item, type }) => {
   );
 };
 
-const TradeSummary = ({type}) => {
+const OrderBookRows = ({type}) => {
   const data = [1,2,3,4,5,6,7,8,9,10]
   return (
     <div>
-      {data.map((item)=>{
-        return <TradeSummaryRow item={item} type={type}/>
+      {data.map((idx,item)=>{
+        return <TradeSummaryRow key={idx} item={item} type={type}/>
 
       })}
     </div>
   )
 }
 
-export default TradeSummary
+export default OrderBookRows

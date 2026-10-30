@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Signbuttons = ({type,color}) => {
-  console.log(color)
+const AuthButtons = ({type,color}) => {
+
   return (
     <div 
       style={{backgroundColor: color}}
@@ -16,4 +16,4 @@ const Signbuttons = ({type,color}) => {
   )
 }
 
-export default Signbuttons
+export default AuthButtons

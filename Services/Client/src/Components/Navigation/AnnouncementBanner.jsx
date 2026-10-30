@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavCaution = () => {
+const AnnouncementBanner = () => {
   return (
     <div className=' text-[80%] w-full h-fit relative  bg-blue-600 py-[2%] text-white'>
       <p className='absolute top-1/2 -translate-y-1/2 text-center w-full'>
@@ -11,4 +11,4 @@ const NavCaution = () => {
   )
 }
 
-export default NavCaution
+export default AnnouncementBanner

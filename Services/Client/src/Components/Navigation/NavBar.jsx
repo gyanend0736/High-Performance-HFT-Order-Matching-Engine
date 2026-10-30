@@ -1,9 +1,10 @@
-import React from 'react'
-import Navitem from './Navitem'
-import Signbuttons from './Signbuttons'
-import Logo from './Logo'
 
-const NavContent = () => {
+import NavItem from './NavItem'
+
+import Logo from './Logo'
+import AuthButtons from './AuthButtons'
+
+const NavBar = () => {
      const navitems= [
         "Trade",
         "Future",
@@ -19,14 +20,14 @@ const NavContent = () => {
             <Logo/>
             
                 {navitems.map((item,idx)=>{
-                return <Navitem key={idx} item={item}/>
+                return <NavItem key={idx} item={item}/>
             })}
             
             
         </div>
         <div className='flex  font-light'>
-            <Signbuttons type={"Create Account"} color={"blue"}/>
-            <Signbuttons type={"Login"} />
+            <AuthButtons type={"Create Account"} color={"blue"}/>
+            <AuthButtons type={"Login"} />
         </div>
         
         
@@ -34,4 +35,4 @@ const NavContent = () => {
   )
 }
 
-export default NavContent
+export default NavBar

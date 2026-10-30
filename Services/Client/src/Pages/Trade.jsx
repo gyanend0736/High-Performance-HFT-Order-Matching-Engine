@@ -1,21 +1,25 @@
-import React from 'react'
-import Listcoins from '../Components/Trade/ListCoins/Listcoins'
-import TradeProvider from '../Components/Trade/TradeProvider'
-import SelectedCoin from '../Components/Trade/SelectedCoin'
-import TradeNav from '../Components/Trade/TradeNav'
-import TradeChart from '../Components/Trade/TradeChart/TradeChart'
-import TradeMain from '../Components/Trade/TradeHistory/TradeMain'
+import React, { useContext } from 'react'
+import TradeProvider from '../Contexts/TradeProvider'
+import TradeNav from '../Components/Trade/TradeHeader'
+import TradeHeader from '../Components/Trade/TradeHeader'
+import MarketHeader from '../Components/Trade/MarketHeader'
+import CoinList from '../Components/Trade/ListCoins/CoinList'
+import PriceChart from '../Components/Trade/TradeChart/PriceChart'
+import OrderBookPanel from '../Components/Trade/TradeHistory/OrderBookPanel'
+
 
 const Trade = () => {
+  
+
   return (
     <TradeProvider>
       <div className='bg-[#0d1016] w-screen h-screen flex flex-col overflow-hidden px-2'>
-        <TradeNav/>
-        <SelectedCoin/>
+        <TradeHeader/>
+        <MarketHeader/>
         <div className='flex-1 overflow-hidden grid grid-cols-[1fr_3fr_1fr] '>
-          <Listcoins/>
-          <TradeChart/>
-          <TradeMain/>
+          <CoinList/>
+          <PriceChart/>
+          <OrderBookPanel/>
         </div>
       </div>
       

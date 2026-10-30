@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-const Navitem = (props) => {
+const NavItem = (props) => {
  
   return (
     <div className='whitespace-nowrap ml-[4%] text-[80%]'>
@@ -9,4 +9,4 @@ const Navitem = (props) => {
   )
 }
 
-export default Navitem
+export default NavItem
